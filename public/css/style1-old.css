@@ -1,0 +1,522 @@
+/*-------------
+ 	General
+-------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: normal 16px sans-serif;
+    color: #555;
+}
+
+ul,
+nav {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover {
+    opacity: .8;
+}
+
+a.btn {
+    color: #fff;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: #2196F3;
+    font-weight: bold;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* @media (max-width: 1000px){
+
+	section{
+		padding: 100px 50px;
+	}
+
+}
+
+@media (max-width: 600px){
+
+	section{
+		padding: 80px 30px;
+	}
+
+} */
+
+section h1 {
+    color: #414a4f;
+    text-transform: capitalize;
+    font: bold 2rem 'Open Sans', sans-serif;
+    margin-left: 0;
+}
+
+section p {
+    text-align: left;
+    line-height: 2;
+}
+
+
+/*-------------
+ 	Header
+-------------*/
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 35px 100px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.logo {
+    margin: 0 0;
+    padding: 0;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav li {
+    margin: 0 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+header nav li:first-child {
+    margin-left: 0;
+}
+
+header nav li:last-child {
+    margin-right: 0;
+}
+
+
+/* @media (max-width: 1000px) {
+    header {
+        padding: 20px 50px;
+    }
+} */
+
+@media (max-width: 987px) {
+    header {
+        flex-direction: column;
+    }
+    header h2 {
+        margin-bottom: 15px;
+    }
+}
+
+
+/*----------------
+ 	Hero Section ----LEAVE FOR NOW
+----------------*/
+
+.hero {
+    position: relative;
+    justify-content: center;
+    min-height: 100vh;
+    color: #fff;
+    text-align: center;
+}
+
+.hero .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-color: #2196F3;
+    z-index: -1;
+}
+
+.hero .background-image:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #414a4f;
+    opacity: 0.75;
+}
+
+.hero h1 {
+    font: bold 60px 'Open Sans', sans-serif;
+    margin-bottom: 15px;
+}
+
+.hero h3 {
+    font: normal 28px 'Open Sans', sans-serif;
+    margin-bottom: 40px;
+}
+
+.hero a.btn {
+    padding: 20px 46px;
+}
+
+@media (max-width: 800px) {
+    .hero {
+        min-height: 600px;
+    }
+    .hero h1 {
+        font-size: 48px;
+    }
+    .hero h3 {
+        font-size: 24px;
+    }
+    .hero a.btn {
+        padding: 15px 40px;
+    }
+}
+
+
+/*--------------------
+ 	Info Section
+---------------------*/
+
+.info {
+    padding: 4% 2.5%;
+    background-color: #fff;
+}
+
+.info h1 {
+    color: #414a4f;
+    text-transform: capitalize;
+    font: bold 2rem 'Open Sans', sans-serif;
+    margin-bottom: 2%;
+}
+
+
+/* @media (max-width: 1000px) {
+     {
+        flex-basis: 100%;
+    }
+} */
+
+
+/*---------------------
+ 	Search Section
+---------------------*/
+
+.searchSection {
+    background-color: #ddd;
+    padding: 2% 2.5%;
+}
+
+.searchSection h1 {
+    color: #414a4f;
+    text-transform: capitalize;
+    font: bold 2rem 'Open Sans', sans-serif;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 2% 0;
+}
+
+.search input {
+    padding: 1.2%;
+    flex: 1;
+    line-height: 1.5rem;
+    margin-right: 2%;
+    font-size: 1.4rem;
+    color: #555;
+    font-style: italic;
+    border-radius: 6px;
+}
+
+.search .btn {
+    color: #fff;
+    border-radius: 3px;
+    text-transform: uppercase;
+    background-color: #2196F3;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 1.1% 3.5%;
+}
+
+@media (max-width: 800px) {
+    .search input {
+        flex-basis: 100%;
+        margin: 0 0 6% 0;
+        font-size: 1rem;
+    }
+    .searchSection h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/*----------------------
+ 	Featured Properties
+----------------------*/
+
+.featured {
+    background-color: #f7f7f7;
+    padding: 4% 2.5%;
+}
+
+.featured h1 {
+    color: #414a4f;
+    text-transform: capitalize;
+    font: bold 2rem 'Open Sans', sans-serif;
+    margin-bottom: 2%;
+}
+
+.row1 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2%;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.row2 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2% 0 2% 0;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.prop1,
+.prop2,
+.prop3,
+.prop4,
+.prop5,
+.prop6 {
+    height: 100%;
+    margin: 0 6% 2% 0;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.prop1 h3,
+.prop2 h3,
+.prop3 h3,
+.prop4 h3,
+.prop5 h3,
+.prop6 h3 {
+    z-index: 10;
+    position: relative;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.propTitles {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 23%;
+    padding: 1% 0;
+    background-color: #2ac1f1;
+    opacity: .85;
+    margin: 0 0 1% 0;
+    border-radius: 0 0 8px 8px;
+}
+
+.responsiveImage {
+    border-radius: 8px;
+}
+
+.titleOverlay {}
+
+@media (max-width: 1000px) {
+    {
+        flex-basis: 70%;
+        margin-bottom: 65px;
+    }
+}
+
+@media (max-width: 800px) {
+    .featured h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ____________________________
+
+Property page
+____________________________ */
+
+
+/*-------------
+ 	Resort Pics
+-------------*/
+
+.resortSection {
+    background-color: #f7f7f7;
+    padding: 4% 2.5%;
+    margin-top: 11%;
+}
+
+.resortSection2 {
+    background-color: #f7f7f7;
+    padding: 0 2.5% 4% 2.5%;
+}
+
+.resortSection h1,
+.resortSection2 h1 {
+    color: #414a4f;
+    text-transform: capitalize;
+    font: bold 2rem 'Open Sans', sans-serif;
+    margin-bottom: 2%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resortRow1,
+.resortRow2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
+}
+
+#resortPics {
+    height: 500px;
+    width: 650px;
+    border-radius: 8px;
+}
+
+#resortPics img {
+    max-height: 500px;
+    border-radius: 8px;
+}
+
+.resortInfo {
+    height: 500px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.5%;
+    border: 2px solid #666;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.resortDetails li {
+    list-style: none;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    padding: 25px 0;
+}
+
+.resortInfo h2 {
+    padding-bottom: 15px;
+}
+
+.resortDetails span {
+    font-weight: 700;
+}
+
+#resortOpp {
+    height: 500px;
+    width: 650px;
+    background-color: #666;
+    border-radius: 8px;
+}
+
+
+/*-------------
+ 	Resort Opportunities & Map
+-------------*/
+
+.googleMap {
+    display: flex;
+    height: 500px;
+    width: 40%;
+    flex-direction: column;
+    margin-left: 2.5%;
+    border: 2px solid #666;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+
+/*-------------
+ 	Footer
+-------------*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-color: #414a4f;
+    padding: 60px 0;
+}
+
+footer ul {
+    display: flex;
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+
+footer ul li {
+    margin: 0 8px;
+}
+
+footer ul li:first-child {
+    margin-left: 0;
+}
+
+footer ul li:last-child {
+    margin-right: 0;
+}
+
+footer p {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+}
+
+footer p a {
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    footer {
+        padding: 80px 15px;
+    }
+}
