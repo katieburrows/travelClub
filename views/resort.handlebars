@@ -1,40 +1,82 @@
- <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm41DL_X-SFXrmzKtqzmy3YR2ZnynXoVE&callback=initMap"></script>
 <script type="text/javascript" src="/javascript/map.js"></script>
+    
     <section class="resortSection">
-        <div class="homeButton">
-            <a href = "/" class="home btn">GO HOME</a>
-        </div>
-        <h1>{{resortName}}</h1>
-        <div class="resortRow1">
-            <div id="resortPics">
-                {{#if photo1}}
-                  <img src="{{photo1}}" alt="{{resortName}}" />
-                {{/if}}
-                <div class="slider"></div>
-            </div>
-            <div class="resortInfo">
-                <h2>Resort Details</h2>
-                <p>{{description}}</p>
-            </div>
-        </div>
-    </section>
 
-    <section class="resortSection2">
-        <h1>Resort Opportunities</h1>
-        <div class="resortRow2">
-            <div id="resortOpp">
-                <div id="map" style="height: 500px"></div>
-                <!-- box -->
+    <div class="container" id="resort-container">
+        <div class="row">   
+             <h1>{{resortName}}</h1>
+             </div>
+        <div class="row">
+            <div class="col-md-8">
+                  <img src="{{photo1}}" alt="{{resortName}}" class="resort-picture" />
             </div>
+
             {{!-- this <div class="googleMap"> maybe not needed? --}}
-            <div class="googleMap">
+            <div class="col-md-4 googleMap">
                 <ul class="resortDetails">
                     <li><span>Airport:</span> {{closestAirport}}</li>
                     <li><span>Address:</span> <p id="resortAddress">{{address}}</p></li>
                     <li><span>Phone:</span> <a href="tel:{{phoneNumber}}">{{phoneNumber}}</a></li>
                     <li><span>Website:</span> <a href="{{website}}" target="_blank">Website</a></li>
                 </ul>
-            </div>
+        </div>
+        </div>
+        <div class="row" id="tab-box">
+             <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link tab-link active" id="resort-tab" data-toggle="tab" href="#resort" role="tab" aria-controls="resort" aria-selected="true">Resort Description</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link tab-link" id="amenities-tab" data-toggle="tab" href="#amenities" role="tab" aria-controls="amenities" aria-selected="false">Amenities</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link tab-link" id="weather-tab" data-toggle="tab" href="#weather" role="tab" aria-controls="weather" aria-selected="false">Weather</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link tab-link" id="maps-tab" data-toggle="tab" href="#maps" role="tab" aria-controls="maps" aria-selected="false">Map</a>
+  </li> 
+  <li class="nav-item">
+    <a class="nav-link tab-link" id="tours-tab" data-toggle="tab" href="#tours" role="tab" aria-controls="tours" aria-selected="false">Tours</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link tab-link " id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events</a>
+  </li>
+</ul>
+</div>
+ <div class="row">
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade tab-card show active" id="resort" role="tabpanel" aria-labelledby="resort-tab">
+       <p>{{description}}</p>
+  </div>
+    <div class="tab-pane fade tab-card" id="amenities" role="tabpanel" aria-labelledby="amenities-tab">
+         <p>Hello World4</p>
+    </div>
+    <div class="tab-pane fade tab-card" id="weather" role="tabpanel" aria-labelledby="weather-tab">
+      <p>Hello World</p>
+    </div>
+    <div class="tab-pane fade tab-card" id="maps" role="tabpanel" aria-labelledby="maps-tab">  
+        <div id="map" style="height: 450px; width: 700px; background-color:blue;"></div>
+    </div>
+
+    <div class="tab-pane fade tab-card" id="tours" role="tabpanel" aria-labelledby="tours-tab">
+        <p>Hello World2</p>
+    </div>
+    <div class="tab-pane fade tab-card" id="events" role="tabpanel" aria-labelledby="events-tab">
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed velit nunc, vestibulum rhoncus diam in, efficitur scelerisque mi. Fusce enim dolor, vulputate quis tincidunt a, mollis et odio. Nulla eget quam vitae justo maximus auctor eget a risus. Suspendisse urna orci, aliquam ut vestibulum eu, finibus a nunc. Vivamus ac tortor et enim porttitor volutpat. In eget semper justo. Vestibulum at nulla at leo euismod luctus ut eu erat. Duis varius magna quis maximus imperdiet. Integer sit amet velit porta, faucibus est in, luctus magna.
+
+Phasellus sodales ligula in velit semper, non dapibus urna lacinia. Curabitur auctor sit amet quam a facilisis. Vestibulum porttitor quis dolor a lobortis. Ut lectus mauris, placerat in ullamcorper a, aliquam at metus. Fusce sed vestibulum ex. Vestibulum nibh quam, hendrerit molestie lorem et, volutpat molestie risus. Nulla in bibendum ligula. Aliquam erat volutpat. Sed quis dolor dui. Morbi suscipit nibh vel dolor auctor hendrerit.
+
+Nulla facilisi. Mauris iaculis pretium lorem eget gravida. Donec accumsan velit et felis ultricies, sed blandit felis mattis. Nam vel risus velit. Duis egestas magna eget aliquet sagittis. Donec eget dignissim leo, tempus consectetur ipsum. Mauris aliquam felis ut ex volutpat, in faucibus elit bibendum.
+
+Donec sagittis sem nec consectetur euismod. Sed venenatis iaculis diam eget lacinia. Pellentesque scelerisque lacus ut urna rhoncus, sed mollis ex mollis. Aenean ut ante mollis, elementum felis sed, lobortis mi. Curabitur elementum ipsum et ligula rutrum, vitae tempus sapien rutrum. Maecenas placerat turpis neque, ac volutpat metus viverra in. Donec gravida quam arcu, quis rhoncus tellus semper eget. Quisque ultricies, diam non finibus malesuada, nibh felis imperdiet ligula, vel euismod lectus urna ut sapien. Vivamus consequat augue ligula, quis pellentesque lectus commodo vitae. Morbi malesuada massa vitae augue maximus, at ultricies enim porttitor. Praesent dapibus hendrerit lectus.
+
+In vel mattis risus. Donec faucibus condimentum lectus eu auctor. Nullam quis facilisis velit. Duis posuere eros ut consectetur hendrerit. Duis pellentesque, nulla placerat volutpat facilisis, velit lacus feugiat orci, ut aliquam magna est at risus. Nunc semper sapien feugiat risus malesuada viverra. Morbi ac enim mi. Quisque mattis quis purus eget ornare. Aliquam pharetra vestibulum mollis. Nunc ac dictum ex, vitae imperdiet ante. Nam non tortor non ligula mollis pretium. Integer viverra, enim cursus interdum sodales, risus felis interdum ex, quis porta metus quam ut metus. Vestibulum dolor est, dignissim ut vestibulum ut, placerat a risus. Duis vehicula imperdiet erat, at posuere neque vestibulum a.</p>
+    </div>
+</div>
+</div>
+        
         </div>
     </section>
+
