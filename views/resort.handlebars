@@ -12,8 +12,10 @@
             <div class="col-md-8">
                   <img src="{{photo1}}" alt="{{resortName}}" class="resort-picture" />
             </div>
-            <div class="col-md-4">
-                <ul class="resortDetails">      
+
+            {{!-- this <div class="googleMap"> maybe not needed? --}}
+            <div class="col-md-4 googleMap">
+                <ul class="resortDetails">
                     <li><span>Airport:</span> {{closestAirport}}</li>
                     <li><span>Address:</span> <p id="resortAddress">{{address}}</p></li>
                     <li><span>Phone:</span> <a href="tel:{{phoneNumber}}">{{phoneNumber}}</a></li>
