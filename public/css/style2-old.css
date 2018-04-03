@@ -52,6 +52,19 @@ margin-left:30%;
     background-color: rgb(44, 78, 163);
 }
 
+#contact-btn {
+    border: 3px solid rgb(92, 91, 91);
+    height: 175px;
+    width: 175px;
+    border-radius: 10px;
+    background-color:lightgray;
+    box-shadow: 5px 5px 5px rgb(44, 78, 163);
+    color: rgb(101, 100, 100);
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: 20pt;
+}
+
 /* VACATION CLUB PROPERTIES HIGHLIGHTED HOMEPAGE*/
 .card-prop {
     margin: 10px;
@@ -73,6 +86,7 @@ margin-left:30%;
     font-size: 90%;
     width: 100%;
     box-shadow: 5px 5px 5px rgba(79, 78, 78, 0.365);
+    
 }
 
 .propTitles p {
@@ -105,7 +119,6 @@ margin-left:30%;
 }
 
 /* FOOTER HOMEPAGE*/
-@media screen and (min-width: 480px){
 footer {
     margin-top: 30px;
     border-top: 4px solid rgb(44, 78, 163);
@@ -113,6 +126,7 @@ footer {
     position: absoulute;
     bottom: 0;
     padding-top: 10px;
+    height: 175px;
 }
 
 #icon {
@@ -129,7 +143,7 @@ footer {
 }
 
 .info-tabs {
-    border: red solid 3px;
+    border: 3px solid gray;
     border-radius: 10px 10px 0px 0px;
     margin-left: 1px;
 }
@@ -138,13 +152,15 @@ footer {
     overflow:auto;
     width: 90%;
     margin: 0% 10% 0% 0%;
-    background-color: lightgray;
+    border-width: 0px 1px 1px 1px;
+    border-color: #DFE2E6;
+    border-style: solid;
     border-radius: 0px 15px 15px 15px;
     padding: 1%;
 }
 
 #tab-box {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 #myTabContent {
@@ -158,7 +174,7 @@ footer {
 
 .tab-link {
     border-radius: 10px 10px 0px 0px;
-    background-color: rgb(27, 48, 101);
+    background-color: rgb(44, 78, 163);
     color: white;
     margin-right: 5px;
     height: 50px;
@@ -179,5 +195,85 @@ footer {
 
 .resort-picture {
     display: block;
-    margin-left: -15px;
+    margin: auto;
+}
+
+#weather {
+    color: rgb(101, 100, 100);
+    font-size: 14pt;
+}
+
+#picture-box {
+    margin: auto;
+    border-radius: 10px;
+    background-color:lightgray;
+    border: 3px solid gray;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgb(44, 78, 163);
+    margin-top: 15px;
+}
+
+#resort-info-box {
+    border-right: 3px solid gray;
+    border-left: 3px solid gray;
+    border-radius: 10pt;
+}
+
+/* CONTACT PAGE */
+
+#contact-button {
+    color: white;
+    background-color: rgb(44, 78, 163);
+}
+
+#ivakaycontactinfo {
+    margin-top: 160px;
+}
+
+#message {
+    height: 150px;
+}
+
+.quote {
+    color:black;
+}
+
+.quote em {
+    font-weight: 400;
+    color: rgb(44, 78, 163);
+}
+
+/* USER AUTHORIZATION PAGE */
+
+#logIn {
+    color: white;
+    background-color: rgb(44, 78, 163);
+}
+
+#login-btn {
+    margin: 0 50%;
+}
+
+/* Resort Page Carousel */
+
+#myCarousel .list-inline {
+    white-space:nowrap;
+    overflow-x:auto;
+}
+
+#myCarousel .carousel-indicators {
+    position: static;
+    left: initial;
+    width: initial;
+    margin-left: initial;
+}
+
+#myCarousel .carousel-indicators > li {
+    width: initial;
+    height: initial;
+    text-indent: initial;
+}
+
+#myCarousel .carousel-indicators > li.active img {
+    opacity: 0.7;
 }

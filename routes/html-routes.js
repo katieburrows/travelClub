@@ -17,6 +17,19 @@ module.exports = function(app) {
  app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/homepage.html"));  
   });
+
+    // GET route for getting all of the resorts
+    app.get("/contact", function(req, res) {
+      res.render("contact");
+    });
+
+    app.get("/login", function(req, res) {
+      res.render("userauthentication");
+    });
+
+    app.get("/inputresort", function(req, res) {
+      res.render("inputresort");
+    });
  // app.get("/api/resorts", function(req, res){
  //  db.Resort.findAll({}).then(function(resorts) {
  //      res.json(resorts);

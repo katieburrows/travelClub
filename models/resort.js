@@ -93,7 +93,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         routeName: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
             //slugified version of resortName
         }
 
