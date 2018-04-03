@@ -28,6 +28,28 @@ module.exports = function(app) {
 
   });
 
+  app.post("/contact", function(req, res) {
+    //set this route up to post new contacts
+    let userEmail;
+    if(req.body.email === req.body.email2) {
+      userEmail = req.body.email
+    } else {
+      alert('emails dont match');
+      return;
+    }
+    
+db.Contact.create({
+  name: req.body.name,
+  email: userEmail,
+  subject: req.body.subject,
+  message: req.body.message
+
+}).then(function(){
+  console.log('contact added');
+  res.redirect('/');
+});
+  });
+
   app.get("/resorts/:id", function(req, res) {
       console.log("Testing");
       db.Resort.findOne({
