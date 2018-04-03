@@ -42,7 +42,7 @@ function initMap() {
         }).then(function(res){
             console.log(res)
          
-          $(".googleMap").html("<h1>Today's High " + res.daily.data[0].apparentTemperatureHigh + " F</h1>");
+          $("#weather").html("<h1>Today's High " + res.daily.data[0].apparentTemperatureHigh + " F</h1>");
         })
     }
             //function for monthly data

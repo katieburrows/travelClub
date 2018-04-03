@@ -9,16 +9,23 @@
              <h1>{{resortName}}</h1>
              </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8" id="picture-box">
                   <img src="{{photo1}}" alt="{{resortName}}" class="resort-picture" />
             </div>
 
             {{!-- this <div class="googleMap"> maybe not needed? --}}
-            <div class="col-md-4 googleMap">
+            <div class="col-md-4 googleMap" id="resort-info">
                 <ul class="resortDetails">
+                    <i class="fa fa-plane fa-2x"></i>
                     <li><span>Airport:</span> {{closestAirport}}</li>
+                    <hr/>
+                    <i class="fa fa-bed fa-2x"></i>
                     <li><span>Address:</span> <p id="resortAddress">{{address}}</p></li>
+                    <hr/>
+                    <i class="fa fa-phone fa-2x"></i>
                     <li><span>Phone:</span> <a href="tel:{{phoneNumber}}">{{phoneNumber}}</a></li>
+                    <hr/>
+                    <i class="fa fa-desktop fa-2x"></i>
                     <li><span>Website:</span> <a href="{{website}}" target="_blank">Website</a></li>
                 </ul>
         </div>
@@ -51,7 +58,7 @@
        <p>{{description}}</p>
   </div>
     <div class="tab-pane fade tab-card" id="amenities" role="tabpanel" aria-labelledby="amenities-tab">
-         <p>Hello World4</p>
+         <p>{{amenities}}</p>
     </div>
     <div class="tab-pane fade tab-card" id="weather" role="tabpanel" aria-labelledby="weather-tab">
       <p>Hello World</p>
@@ -61,7 +68,16 @@
     </div>
 
     <div class="tab-pane fade tab-card" id="tours" role="tabpanel" aria-labelledby="tours-tab">
-        <p>Hello World2</p>
+        <a href="http://www.walkaboutflorence.com/" target="_blank">Florence Walking Tours</a>
+            <hr/>
+        <a href="https://www.viator.com/tours/Pisa/Small-Group-Pisa-Day-Trip-to-Siena-and-San-Gimignano-Including-Wine-Tasting/d520-6693SIENA" target="_blank">Day Trip - Siena and San Gimignano with Wine Tasting</a>
+            <hr/>
+        <a href="http://www.cinqueterretour.it/en/private-tours/cinque-terre-by-private-boat.html" target="_blank">Cinque Terre by Boat</a>
+        <hr/>
+         <a href="http://www.ariannandfriends.com/wine-tours-tuscany.htm" target="_blank">Wine Tasting</a>
+        <hr/>
+         <a href="https://www.backroads.com/tours/tuscany-bike-tours" target="_blank">Cycling Tours</a>
+        <hr/>
     </div>
     <div class="tab-pane fade tab-card" id="events" role="tabpanel" aria-labelledby="events-tab">
          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed velit nunc, vestibulum rhoncus diam in, efficitur scelerisque mi. Fusce enim dolor, vulputate quis tincidunt a, mollis et odio. Nulla eget quam vitae justo maximus auctor eget a risus. Suspendisse urna orci, aliquam ut vestibulum eu, finibus a nunc. Vivamus ac tortor et enim porttitor volutpat. In eget semper justo. Vestibulum at nulla at leo euismod luctus ut eu erat. Duis varius magna quis maximus imperdiet. Integer sit amet velit porta, faucibus est in, luctus magna.
@@ -76,7 +92,87 @@ In vel mattis risus. Donec faucibus condimentum lectus eu auctor. Nullam quis fa
     </div>
 </div>
 </div>
-        
-        </div>
+
+</div>
     </section>
 
+
+
+    <div class="col-lg-6 offset-lg-3" id="slider">
+            <div id="myCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="active item carousel-item" data-slide-number="0">
+                        <img src="http://placehold.it/1200x480&amp;text=one" class="img-fluid">
+                    </div>
+                    <div class="item carousel-item" data-slide-number="1">
+                        <img src="http://placehold.it/1200x480/888/FFF" class="img-fluid">
+                    </div>
+                    <div class="item carousel-item" data-slide-number="2">
+                        <img src="http://placehold.it/1200x480&amp;text=three" class="img-fluid">
+                    </div>
+                    <div class="item carousel-item" data-slide-number="3">
+                        <img src="http://placehold.it/1200x480&amp;text=four" class="img-fluid">
+                    </div>
+                    <div class="item carousel-item" data-slide-number="4">
+                        <img src="http://placehold.it/1200x480&amp;text=five" class="img-fluid">
+                    </div>
+                    <div class="item carousel-item" data-slide-number="5">
+                        <img src="http://placehold.it/1200x480&amp;text=six" class="img-fluid">
+                    </div>
+                    <div class="item carousel-item" data-slide-number="6">
+                        <img src="http://placehold.it/1200x480&amp;text=seven" class="img-fluid">
+                    </div>
+                    <div class="item carousel-item" data-slide-number="7">
+                        <img src="http://placehold.it/1200x480&amp;text=eight" class="img-fluid">
+                    </div>
+
+                    {{!-- <a class="carousel-control left pt-3" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+                    <a class="carousel-control right pt-3" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right"></i></a> --}}
+
+                </div>
+
+
+                <ul class="carousel-indicators list-inline">
+                    <li class="list-inline-item active">
+                        <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
+                            <img src="http://placehold.it/80x60&amp;text=one" class="img-fluid">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
+                            <img src="http://placehold.it/80x60&amp;text=two" class="img-fluid">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
+                            <img src="http://placehold.it/80x60&amp;text=three" class="img-fluid">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-3" data-slide-to="3" data-target="#myCarousel">
+                            <img src="http://placehold.it/80x60&amp;text=four" class="img-fluid">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-4" data-slide-to="4" data-target="#myCarousel">
+                            <img src="http://placehold.it/80x60&amp;text=five" class="img-fluid">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-5" data-slide-to="5" data-target="#myCarousel">
+                            <img src="http://placehold.it/80x60&amp;text=six" class="img-fluid">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-6" data-slide-to="6" data-target="#myCarousel">
+                            <img src="http://placehold.it/80x60&amp;text=seven" class="img-fluid">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a id="carousel-selector-7" data-slide-to="7" data-target="#myCarousel">
+                            <img src="http://placehold.it/80x60&amp;text=eight" class="img-fluid">
+                        </a>
+                    </li>
+                </ul>
+        </div>
+    </div>
