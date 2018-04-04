@@ -49,8 +49,8 @@ $('a.deleteInput').on('click', function() {
 	$(`#tourUrl${this.id}`).remove();
 });
 
-$("#submit-btn").on("click", function(){
-var form = document.getElementById("resort-input-form");
-form.reset();
-});
+// $("#submit-btn").on("click", function(){
+// var form = document.getElementById("resort-input-form");
+// form.reset();
+// });
 

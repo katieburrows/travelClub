@@ -1,5 +1,4 @@
 //linked to resort.html--did alert test
-  // alert("ryannnnn said hi")
 
 var db = require("../models");
 var axios = require("axios");
@@ -9,13 +8,18 @@ module.exports = function(app) {
   // alert("ryannnnn said hi")
   // POST route for saving a new resort. You can create a resort using the data on req.body
   app.get("/", function(req, res) {
-    res.render("mainpage");
+      db.Resort.findAll({
+        order: [['resortName', 'ASC']]
+      }).then(function(resorts) {
+        res.render("mainpage", {resorts: resorts});
+        // res.redirect("/api/resorts");
+      })
   });
   
   app.get("/api/resorts", function(req, res) {
 
       db.Resort.findAll({
-        order: [['location', 'ASC']]
+        order: [['country', 'ASC']]
       }).then(function(resorts) {
         console.log("All resorts:");
         console.log(resorts);
@@ -30,8 +34,19 @@ module.exports = function(app) {
     var data = req.body;
     var urlString = req.body.tourUrl.toString();
     var photos = req.body.photos.toString();
-    console.log(photos);
-    console.log(typeof(photos));
+
+    function slugify(text) {
+      return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+        .replace(/^-+/, '')             // Trim - from start of text
+        .replace(/-+$/, '');            // Trim - from end of text
+    }
+
+    // console.log(photos);
+    // console.log(typeof(photos));
+    console.log(req.body);
 
     db.Resort.create({
       resortName: data.resortName,
@@ -46,11 +61,12 @@ module.exports = function(app) {
       accommodations: data.accommodations,
       description: data.description,
       photos: photos,
-      routeName: data.routeName,
+      routeName: slugify(data.resortName),
       tourUrl: urlString
 
     }).then(function(){
       console.log('data added');
+      res.redirect("/inputresort")
       
     });
 
@@ -107,12 +123,6 @@ db.Contact.create({
           tourlink5: tourLinksArray[4]
         }
 
-
-
-
-
-
-
         //console.log("Selected resort:");
         console.log('==========' + resort.dataValues.resortName);
         // res.json(resort);
@@ -129,13 +139,32 @@ db.Contact.create({
       }
       //
     }).then(function(resort) {
-      //console.log("Selected resort:");
-      console.log(resort.dataValues.resortName);
-      // res.json(resort);
-      res.render("resort", resort.dataValues );
-      // res.redirect("/api/resorts");
-      console.log(resort);
-    });
+        var photoArray = resort.dataValues.photos.split(',');
+        var photo = {
+          photo1: photoArray[0],
+          photo2: photoArray[1],
+          photo3: photoArray[2],
+          photo4: photoArray[3],
+          photo5: photoArray[4],
+          photo6: photoArray[5]
+        }
+
+        var tourLinksArray = resort.dataValues.tourUrl.split(',');
+        var tour = {
+          tourlink1: tourLinksArray[0],
+          tourlink2: tourLinksArray[1],
+          tourlink3: tourLinksArray[2],
+          tourlink4: tourLinksArray[3],
+          tourlink5: tourLinksArray[4]
+        }
+
+       //console.log("Selected resort:");
+        console.log('==========' + resort.dataValues.resortName);
+        // res.json(resort);
+        res.render("resort", {Info: resort.dataValues, Photos: photo, Tours: tour});
+        // res.redirect("/api/resorts");
+      })
+
 
 });
 
