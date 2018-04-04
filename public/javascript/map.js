@@ -60,50 +60,53 @@ function initMap() {
         var monthHighTemp = {};
 
         function weatherUnderground() {
-            months.forEach(function(month, i, arr) {
-                var queryURL = "http://api.wunderground.com/api/49649fd7c8238fd8/planner_" + month + "/q/" + lat + "," + lng + ".json";
-                $.ajax({
-                    url: queryURL,
-                    method: "GET",
-                    dataType: 'jsonp',
-                    cache: false,
-                    success: function(res) {}
-                }).then(function(res) {
-                    var monthData = {
-                        highTemp: res.trip.temp_high.avg.F,
-                        lowTemp: res.trip.temp_low.avg.F
-                    }
-                    monthHighTemp[res.trip.period_of_record.date_start.date.monthname] = monthData;
-
-                    if (i === 7) {
-                        averageTemp(monthHighTemp.December.highTemp, monthHighTemp.January.highTemp, "winter");
-                        averageTemp(monthHighTemp.March.highTemp, monthHighTemp.May.highTemp, "spring");
-                        averageTemp(monthHighTemp.June.highTemp, monthHighTemp.August.highTemp, "summer");
-                        averageTemp(monthHighTemp.September.highTemp, monthHighTemp.October.highTemp, "fall");
-                        console.log(highAverage);
-                        // .push(highAverage);
-
-                        // averageTemp(monthHighTemp.March.highTemp, monthHighTemp.May.highTemp, "average high temp for spring");
-                        // averageTemp(monthHighTemp.June.highTemp, monthHighTemp.August.highTemp, "average high temp for summer"); 
-                        // averageTemp(monthHighTemp.September.highTemp, monthHighTemp.October.highTemp, "average high temp for fall");
-                    }
-
-                })
-
+            
+            $.ajax({
+                url: "/resort/weather",
+                method: "GET",
+                data: {
+                    lat: lat,
+                    lng: lng,
+                    months: months.join(",")
+                },
+                cache: false
+            }).then(function(res) {
+                console.log(res);
             });
-
+            
+            // months.forEach(function(month, i, arr) {
+            //     var queryURL = "http://api.wunderground.com/api/49649fd7c8238fd8/planner_" + month + "/q/" + lat + "," + lng + ".json";
+            //     $.ajax({
+            //         url: queryURL,
+            //         method: "GET",
+            //         dataType: 'jsonp',
+            //         cache: false,
+            //         success: function(res) {}
+            //     }).then(function(res) {
+            //         var monthData = {
+            //             highTemp: res.trip.temp_high.avg.F,
+            //             lowTemp: res.trip.temp_low.avg.F
+            //         }
+            //         monthHighTemp[res.trip.period_of_record.date_start.date.monthname] = monthData;
+            // 
+            //         if (i === arr.length - 1) {
+            //             averageTemp(monthHighTemp.December.highTemp, monthHighTemp.January.highTemp).push(highAverage);
+            // 
+            //             // averageTemp(monthHighTemp.March.highTemp, monthHighTemp.May.highTemp, "average high temp for spring");
+            //             // averageTemp(monthHighTemp.June.highTemp, monthHighTemp.August.highTemp, "average high temp for summer"); 
+            //             // averageTemp(monthHighTemp.September.highTemp, monthHighTemp.October.highTemp, "average high temp for fall");
+            //         }
+            // 
+            //     })
+            // 
+            // });
+            // 
         }
         console.log(monthHighTemp);
 
-        function averageTemp(num1, num2, season) {
-             // $("#weather").append("<h1>Average High during Winter" + res.daily.data[0].apparentTemperatureHigh + " F</h1>");
-            const avg = (parseInt(num1) + parseInt(num2)) / 2;
-            highAverage.push({
-                season: season,
-                high: avg
-            });
-            
-
+        function averageTemp(num1, num2, message) {
+             $("#weather").append("<h1>Average High during Winter" + res.daily.data[0].apparentTemperatureHigh + " F</h1>");
+            console.log((parseInt(num1) + parseInt(num2)) / 2);
         }
         
         currentTempDarkSkyAPI();
