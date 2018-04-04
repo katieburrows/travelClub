@@ -56,14 +56,17 @@
   </div>
 </div>
     </div>
-    </div>
-    </div>
 </section>
 
-<section class="searchSection" style="text-align: center;">
+<section class="search-container">
     <form id="search" class="search">
-        <span class="fa fa-search"></span>
-        <input type="text" id="resort-search" name="resort" placeholder="Search by vacation club name, location, brand">
+        <span class="fa fa-search" id="searchBtn"></span>
+        <input list="resorts" id="resort-search" name="resortSearch" placeholder="Search by vacation club name, location, brand" />
+        <datalist id="resorts">
+            {{#each resorts}}
+                <option value = "{{resortName}}" />
+            {{/each}}
+        </datalist>
     </form>
 </section>
 

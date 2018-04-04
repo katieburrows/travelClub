@@ -7,10 +7,9 @@ function slugify(text) {
     .replace(/-+$/, '');            // Trim - from end of text
 }
 
-$("#searchBtn").on("click", function(event){
-	event.preventDefault();
+$("#searchBtn").on("click", function(){
 
-	var queryURL = "/resorts/name/" + slugify($("#resort").val());
+	var queryURL = "/resorts/name/" + slugify($("#resort-search").val());
 
 	$.ajax(queryURL, {
 		method: "GET",

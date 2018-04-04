@@ -2,6 +2,7 @@
   // alert("ryannnnn said hi")
 
 var db = require("../models");
+var axios = require("axios");
 
 module.exports = function(app) {
   // GET route for getting all of the resorts
@@ -14,7 +15,7 @@ module.exports = function(app) {
   app.get("/api/resorts", function(req, res) {
 
       db.Resort.findAll({
-      	order: [['location', 'ASC']]
+        order: [['location', 'ASC']]
       }).then(function(resorts) {
         console.log("All resorts:");
         console.log(resorts);
@@ -137,4 +138,30 @@ db.Contact.create({
     });
 
 });
+
+  app.get("/resort/weather", function(req, res) {
+    var months = req.query.months.split(",");
+    var lat = req.query.lat;
+    var lng = req.query.lng;
+    
+    Promise.all(months.map(function(month) {
+      var queryURL = "http://api.wunderground.com/api/49649fd7c8238fd8/planner_" + month + "/q/" + lat + "," + lng + ".json";
+      return new Promise(function(resolve, reject) {
+        axios.get(queryURL).then(function(item) {
+          resolve({...item.data, month: month});
+        });
+      });
+    })).then(function(data) {
+      return data.map(function(item) {
+        return {
+            highTemp: item.trip.temp_high.avg.F,
+            lowTemp: item.trip.temp_low.avg.F,
+            month: item.month
+        }
+      });
+    }).then(function(data) {
+      res.json(data);
+    });
+    
+  });
 }
