@@ -18,7 +18,39 @@ $("#searchBtn").on("click", function(){
 		document.getElementById("main-content").innerHTML = resort;
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
 
+
+
 	})
-
-
 })
+
+// Url input field creater / deleter
+var inputTicker = 2;
+$("#addUrlInput").on("click", function(){
+	$('#inputContainer').append(`<a href="#" id="${inputTicker}" class="deleteInput">X</a><input type="text" id="tourUrl${inputTicker}" name="tourUrl" class="form-control">`);
+	inputTicker++;
+});
+
+$('a.deleteInput').on('click', function() {
+	$(this).remove();
+	$(`#tourUrl${this.id}`).remove();
+});
+
+
+
+// Photo input field creater / deleter
+var photoTicker = 2;
+$("#addPhotoInput").on("click", function(){
+	$('#inputContainerPhotos').append(`<a href="#" id="${photoTicker}" class="deleteInput">X</a><input type="text" id="photos${photoTicker}" name="photos" class="form-control">`);
+	photoTicker++;
+});
+
+$('a.deleteInput').on('click', function() {
+	$(this).remove();
+	$(`#tourUrl${this.id}`).remove();
+});
+
+$("#submit-btn").on("click", function(){
+var form = document.getElementById("resort-input-form");
+form.reset();
+});
+

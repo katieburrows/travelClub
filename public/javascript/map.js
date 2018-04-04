@@ -60,6 +60,7 @@ function initMap() {
         var monthHighTemp = {};
 
         function weatherUnderground() {
+
             
             $.ajax({
                 url: "/resort/weather",
@@ -72,6 +73,33 @@ function initMap() {
                 cache: false
             }).then(function(res) {
                 console.log(res);
+
+//             months.forEach(function(month, i, arr) {
+//                 // var queryURL = "http://api.wunderground.com/api/49649fd7c8238fd8/planner_" + month + "/q/" + lat + "," + lng + ".json";
+//                 $.ajax({
+//                     url: queryURL,
+//                     method: "GET",
+//                     dataType: 'jsonp',
+//                     cache: false,
+//                     success: function(res) {}
+//                 }).then(function(res) {
+//                     var monthData = {
+//                         highTemp: res.trip.temp_high.avg.F,
+//                         lowTemp: res.trip.temp_low.avg.F
+//                     }
+//                     monthHighTemp[res.trip.period_of_record.date_start.date.monthname] = monthData;
+
+//                     if (i === arr.length - 1) {
+//                         averageTemp(monthHighTemp.December.highTemp, monthHighTemp.January.highTemp).push(highAverage);
+
+//                         // averageTemp(monthHighTemp.March.highTemp, monthHighTemp.May.highTemp, "average high temp for spring");
+//                         // averageTemp(monthHighTemp.June.highTemp, monthHighTemp.August.highTemp, "average high temp for summer"); 
+//                         // averageTemp(monthHighTemp.September.highTemp, monthHighTemp.October.highTemp, "average high temp for fall");
+//                     }
+
+//                 })
+
+
             });
             
             // months.forEach(function(month, i, arr) {

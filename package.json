@@ -6,6 +6,7 @@
   "dependencies": {
     "@google/maps": "^0.4.5",
     "axios": "^0.18.0",
+    "animate.css": "^3.6.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
