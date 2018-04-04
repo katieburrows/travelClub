@@ -15,11 +15,8 @@
       "dialect": "mysql"
     },
     "production": {
-      "username": "root",
-      "password": null,
-      "database": "iVakayDB",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+      "dialect": "mysql",
+      "use_env_variable": "mysql://ccuyxrsix0vlfzmh:dw20xf84y8twqyv8@tyduzbv3ggpf15sx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/hsstgwe9on8no30m"
     }
   }
   
