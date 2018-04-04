@@ -13,8 +13,8 @@
             <div class="row">
                 <div class="col-md-8">
                         <div class="md-form">
-                            <p>User Name</p>
-                            <input type="text" id="userName" name="user-authorization" class="form-control">
+                            <p>Email</p>
+                            <input type="text" id="email" name="user-authorization" class="form-control">
                             <label for="password" class=""></label>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
             </form>
 
             <div class="center-on-small-only">
-                <a class="btn btn-primary" id="logIn" onclick="document.getElementById('contact-form').submit();">Log In</a>
+                <a class="btn btn-primary" id="logIn">Log In</a>
             </div>
             <div class="status"></div>
             </div>
@@ -45,3 +45,84 @@
              </div>
         </div>
 </section>
+    <!--Include firebase.js  -->
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  
+  <!--Configure firebase-->
+  <script>
+    // Visit https://console.firebase.google.com/project/<your project id>/overview and click on "Add Firebase to your web app"
+    var config = {
+      apiKey: "AIzaSyDa0DSOliVsoAsKnRc2Zse6IyplvT59ETo",
+      authDomain: "travelclub-e9d24.firebaseapp.com",
+      databaseURL: "https://travelclub-e9d24.firebaseio.com",
+      projectId: "travelclub-e9d24",
+      storageBucket: "travelclub-e9d24.appspot.com", 
+      messagingSenderId: "965918620263"
+};
+    firebase.initializeApp(config);
+  
+    var database = firebase.database();
+
+   
+  
+
+   
+    document.querySelector("#logIn").addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log("login button works");
+
+      var email = document.querySelector('#email').value;
+      var password = document.querySelector('#password').value
+      // var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+      var auth = firebase.auth();
+      console.log("email and password", email + password);
+
+      database.ref().push({
+        email: email,
+        password: password
+      });
+      // var currentUser = auth.currentUser;
+      
+      var promise = auth.signInWithEmailAndPassword(email, password);
+
+      promise.catch(function(error){
+        console.log(error.message);
+      })
+
+      firebase.auth().onAuthStateChanged(function(user) {
+          //window.user = user;
+          if(user) {
+            window.location = "/inputresort";
+          }
+          else{
+            console.log("you better work");
+          }
+
+      });
+        // firebase.auth().currentUser.getIdToken(true).then(function(idToken){
+        //   localStorage.setItem("idToken", idToken)
+        // }).catch(function(error){
+
+        // })
+      // Step 2
+      //  Get a credential with firebase.auth.emailAuthProvider.credential(emailInput.value, passwordInput.value)
+      //  If there is no current user, log in with auth.signInWithCredential(credential)
+      //  If there is a current user an it's anonymous, atttempt to link the new user with firebase.auth().currentUser.link(credential) 
+      //  The user link will fail if the user has already been created, so catch the error and sign in.
+    });
+    
+
+    // document.querySelector('#logOut').addEventListener('click', function(event) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    //   firebase.auth().signOut().then(function(){
+
+    //     window.location = "layouts/mainpage.handlebars";
+    //   });
+    // });
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>

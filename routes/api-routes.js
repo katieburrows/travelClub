@@ -8,7 +8,15 @@ module.exports = function(app) {
   // alert("ryannnnn said hi")
   // POST route for saving a new resort. You can create a resort using the data on req.body
   app.get("/", function(req, res) {
-    res.render("mainpage");
+     db.Resort.findAll({
+        order: [['location', 'ASC']]
+      }).then(function(resorts) {
+        
+        
+        res.render("mainpage", {resorts: resorts});
+        // res.redirect("/api/resorts");
+      })
+    
   });
   
   app.get("/api/resorts", function(req, res) {

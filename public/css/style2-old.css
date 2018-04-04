@@ -37,6 +37,14 @@ margin-left:30%;
     margin: 60px 0px;
 }
 
+.search-container {
+    text-align: center;
+}
+
+#searchBtn {
+    cursor: pointer;
+}
+
 #resort-search {
     width: 70%;
     height: 35px;

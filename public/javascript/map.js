@@ -75,8 +75,13 @@ function initMap() {
                     }
                     monthHighTemp[res.trip.period_of_record.date_start.date.monthname] = monthData;
 
-                    if (i === arr.length - 1) {
-                        averageTemp(monthHighTemp.December.highTemp, monthHighTemp.January.highTemp).push(highAverage);
+                    if (i === 7) {
+                        averageTemp(monthHighTemp.December.highTemp, monthHighTemp.January.highTemp, "winter");
+                        averageTemp(monthHighTemp.March.highTemp, monthHighTemp.May.highTemp, "spring");
+                        averageTemp(monthHighTemp.June.highTemp, monthHighTemp.August.highTemp, "summer");
+                        averageTemp(monthHighTemp.September.highTemp, monthHighTemp.October.highTemp, "fall");
+                        console.log(highAverage);
+                        // .push(highAverage);
 
                         // averageTemp(monthHighTemp.March.highTemp, monthHighTemp.May.highTemp, "average high temp for spring");
                         // averageTemp(monthHighTemp.June.highTemp, monthHighTemp.August.highTemp, "average high temp for summer"); 
@@ -90,9 +95,15 @@ function initMap() {
         }
         console.log(monthHighTemp);
 
-        function averageTemp(num1, num2, message) {
-             $("#weather").append("<h1>Average High during Winter" + res.daily.data[0].apparentTemperatureHigh + " F</h1>");
-            console.log((parseInt(num1) + parseInt(num2)) / 2);
+        function averageTemp(num1, num2, season) {
+             // $("#weather").append("<h1>Average High during Winter" + res.daily.data[0].apparentTemperatureHigh + " F</h1>");
+            const avg = (parseInt(num1) + parseInt(num2)) / 2;
+            highAverage.push({
+                season: season,
+                high: avg
+            });
+            
+
         }
         
         currentTempDarkSkyAPI();
