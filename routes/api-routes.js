@@ -12,6 +12,7 @@ module.exports = function(app) {
   });
   
   app.get("/api/resorts", function(req, res) {
+
       db.Resort.findAll({
       	order: [['location', 'ASC']]
       }).then(function(resorts) {
@@ -23,9 +24,38 @@ module.exports = function(app) {
 
   });
 
-  app.post("/resorts/add", function(req, res) {
+  app.post("/inputresort", function(req, res) {
     //set this route up to post new resorts via a form...in version2
+    var data = req.body;
+    var urlString = req.body.tourUrl.toString();
+    var photos = req.body.photos.toString();
+    console.log(photos);
+    console.log(typeof(photos));
 
+    db.Resort.create({
+      resortName: data.resortName,
+      propertyOwner: data.propertyOwner,
+      geographicalRegion: data.geographicalRegion,
+      address: data.address, 
+      country: data.country,
+      phoneNumber: data.phoneNumber,
+      website: data.website, 
+      closestAirport: data.closestAirport,
+      amenities: data.amenities,
+      accommodations: data.accommodations,
+      description: data.description,
+      photos: photos,
+      routeName: data.routeName,
+      tourUrl: urlString
+
+    }).then(function(){
+      console.log('data added');
+      
+    });
+
+   
+  
+  
   });
 
   app.post("/contact", function(req, res) {
@@ -57,10 +87,35 @@ db.Contact.create({
           id: req.params.id
         }
       }).then(function(resort) {
+        var photoArray = resort.dataValues.photos.split(',');
+        var photo = {
+          photo1: photoArray[0],
+          photo2: photoArray[1],
+          photo3: photoArray[2],
+          photo4: photoArray[3],
+          photo5: photoArray[4],
+          photo6: photoArray[5]
+        }
+
+        var tourLinksArray = resort.dataValues.tourUrl.split(',');
+        var tour = {
+          tourlink1: tourLinksArray[0],
+          tourlink2: tourLinksArray[1],
+          tourlink3: tourLinksArray[2],
+          tourlink4: tourLinksArray[3],
+          tourlink5: tourLinksArray[4]
+        }
+
+
+
+
+
+
+
         //console.log("Selected resort:");
-        console.log(resort.dataValues.resortName);
+        console.log('==========' + resort.dataValues.resortName);
         // res.json(resort);
-        res.render("resort", resort.dataValues );
+        res.render("resort", {Info: resort.dataValues, Photos: photo, Tours: tour});
         // res.redirect("/api/resorts");
       })
 
