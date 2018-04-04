@@ -26,23 +26,23 @@ module.exports = function(sequelize, DataTypes) {
             // }
             allowNull: false,
         },
-        location: {
+        country: {
             type: DataTypes.STRING,    
         },
 
         phoneNumber: {
              type: DataTypes.STRING,
-             validate: {
-                len: [1],
-                    //without the comma 1 becomes the minimum
-                is: ["^[0-9]+$",'i'],
-            }
+            //  validate: {
+            //     len: [1],
+            //         //without the comma 1 becomes the minimum
+            //     is: ["^[0-9]+$",'i'],
+            // }
         },
         website: {
             type: DataTypes.STRING,
-            validate: {
-                isUrl: true,
-            }
+            // validate: {
+            //     isUrl: true,
+            // }
         },
         closestAirport: {
             type: DataTypes.STRING,
@@ -56,47 +56,20 @@ module.exports = function(sequelize, DataTypes) {
         description: {
             type: DataTypes.TEXT,
         },
-        photo1: {
+        photos: {
             type: DataTypes.STRING,
-            validate: {
-                isUrl: true,
-            }
-        },
-        photo2: {
-            type: DataTypes.STRING,
-            validate: {
-                isUrl: true,
-            }
-        },
-        photo3: {
-            type: DataTypes.STRING,
-            validate: {
-                isUrl: true,
-            }
-        },
-        photo4: {
-            type: DataTypes.STRING,
-            validate: {
-                isUrl: true,
-            }
-        },
-        photo5: {
-            type: DataTypes.STRING,
-            validate: {
-                isUrl: true,
-            }
-        },
-        photo6: {
-            type: DataTypes.STRING,
-            validate: {
-                isUrl: true,
-            }
+            // validate: {
+            //     isUrl: true,
+            // }
         },
         routeName: {
             type: DataTypes.STRING
             //slugified version of resortName
+        },
+        tourUrl: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
-
     });
     return Resort;
 };

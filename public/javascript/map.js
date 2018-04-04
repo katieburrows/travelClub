@@ -61,7 +61,7 @@ function initMap() {
 
         function weatherUnderground() {
             months.forEach(function(month, i, arr) {
-                var queryURL = "http://api.wunderground.com/api/49649fd7c8238fd8/planner_" + month + "/q/" + lat + "," + lng + ".json";
+                // var queryURL = "http://api.wunderground.com/api/49649fd7c8238fd8/planner_" + month + "/q/" + lat + "," + lng + ".json";
                 $.ajax({
                     url: queryURL,
                     method: "GET",
