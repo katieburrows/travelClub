@@ -8,19 +8,7 @@ function slugify(text) {
 }
 
 $("#searchBtn").on("click", function(){
-
-	var queryURL = "/resorts/name/" + slugify($("#resort-search").val());
-
-	$.ajax(queryURL, {
-		method: "GET",
-	}).then(function(resort){
-		console.log(resort);
-		document.getElementById("main-content").innerHTML = resort;
-		document.body.scrollTop = document.documentElement.scrollTop = 0;
-
-
-
-	})
+	window.location = "/resorts/name/" + slugify($("#resort-search").val());
 })
 
 // Url input field creater / deleter
