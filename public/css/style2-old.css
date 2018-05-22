@@ -215,6 +215,7 @@ footer {
 #weather {
     color: rgb(101, 100, 100);
     font-size: 14pt;
+    text-align: center;
 }
 
 #picture-box {

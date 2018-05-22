@@ -52,7 +52,7 @@
         </div>
         <div class="col-lg-2"> 
             <a href="/contact">
-            <button type="button" class="btn btn-outline-primary btn-lg animated infinite jello" id="contact-btn">Contact Us</button></a>
+            <button type="button" class="btn btn-outline-primary btn-lg" id="contact-btn">Contact Us</button></a>
   </div>
 </div>
     </div>
@@ -60,13 +60,13 @@
 
 <section class="search-container">
     <form id="search" class="search">
-        <span class="fa fa-search" id="searchBtn"></span>
         <input list="resorts" id="resort-search" name="resortSearch" placeholder="Search by vacation club name, location, brand" />
         <datalist id="resorts">
             {{#each resorts}}
                 <option value = "{{resortName}}" />
             {{/each}}
         </datalist>
+        <span class="fa fa-search" id="searchBtn"></span>
     </form>
 </section>
 
