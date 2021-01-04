@@ -5,7 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "@google/maps": "^0.4.5",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "animate.css": "^3.6.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
